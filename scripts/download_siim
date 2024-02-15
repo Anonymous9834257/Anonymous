@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# download data
+
+curl -X GET \
+"https://huggingface.co/datasets/anonymous347928/pcbm-siim-isic/resolve/main/data/images.zip?download=true" |  grep -Eo "(http|https)://.*" | xargs curl --output artifacts/data/SIIM_ISIC.zip
+
+# extract data
+
+unzip artifacts/data/SIIM_ISIC.zip -d artifacts/data/SIIM_ISIC

@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# download data
+
+curl -X GET \
+"https://huggingface.co/datasets/anonymous347928/pcbm-coco-stuff/resolve/main/data.zip?download=true" |  grep -Eo "(http|https)://.*" | xargs curl --output artifacts/data/COCO_STUFF.zip
+
+# extract data
+
+unzip artifacts/data/COCO_STUFF.zip -d artifacts/data/COCO_STUFF
